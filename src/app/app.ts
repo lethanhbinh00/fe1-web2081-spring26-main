@@ -8,11 +8,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css',
 })
 export class App {
-  title = 'my-app'; // ko dung const hay let
-  fullName = 'hoadv21';
-  age: number = 10;
+  title = 'my-app'; 
+  fullName = 'binh';
+  age: number = 12;
 
-  // method: function
   sayHello() {
     console.log('hello ');
     alert('hello ' + this.fullName);
