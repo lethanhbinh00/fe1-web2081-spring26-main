@@ -1,0 +1,65 @@
+<div class="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-8 border border-gray-100">
+  <h2 class="text-3xl font-bold text-center text-green-600 mb-6">
+    Form đăng ký tài khoản
+  </h2>
+
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="space-y-5">
+    <div>
+      <label class="block text-sm font-semibold text-gray-700 mb-2">
+        Username
+      </label>
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Nhập username"
+        class="w-full px-4 py-3 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+      />
+      @if (username?.invalid && username?.touched) {
+        <p class="text-red-500 text-sm mt-2">Username là bắt buộc</p>
+      }
+    </div>
+
+    <div>
+      <label class="block text-sm font-semibold text-gray-700 mb-2">
+        Email
+      </label>
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Nhập email"
+        class="w-full px-4 py-3 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+      />
+      @if (email?.touched && email?.errors?.['required']) {
+        <p class="text-red-500 text-sm mt-2">Email là bắt buộc</p>
+      }
+      @if (email?.touched && email?.errors?.['email']) {
+        <p class="text-red-500 text-sm mt-2">Email không đúng định dạng</p>
+      }
+    </div>
+
+    <div>
+      <label class="block text-sm font-semibold text-gray-700 mb-2">
+        Password
+      </label>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Nhập password"
+        class="w-full px-4 py-3 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+      />
+      @if (password?.touched && password?.errors?.['required']) {
+        <p class="text-red-500 text-sm mt-2">Password là bắt buộc</p>
+      }
+      @if (password?.touched && password?.errors?.['minlength']) {
+        <p class="text-red-500 text-sm mt-2">Password phải có ít nhất 6 ký tự</p>
+      }
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl transition duration-200"
+    >
+      Đăng ký
+    </button>
+  </form>
+</div>
