@@ -1,0 +1,53 @@
+{
+  "stories": [
+    {
+      "title": "naruto",
+      "id": 1
+    },
+    {
+      "title": "gsghsdh",
+      "id": 2
+    },
+    {
+      "title": "",
+      "id": 3
+    },
+    {
+      "title": "jrtjrtj",
+      "id": 4
+    },
+    {
+      "title": "Doraemon",
+      "author": "Kkk",
+      "views": 10000,
+      "id": 5
+    },
+    {
+      "title": "sgsdg",
+      "author": "gsdgsd",
+      "views": 10000,
+      "id": 6
+    },
+    {
+      "title": "gg",
+      "author": "",
+      "views": 0,
+      "id": 7
+    },
+    {
+      "title": "gsdg",
+      "author": "",
+      "views": 0,
+      "id": 8
+    },
+    {
+      "title": "vsdv",
+      "author": "vsdvs",
+      "views": 12,
+      "name": "dvsvd",
+      "price": 5,
+      "id": 9
+    }
+  ],
+  "users": []
+}

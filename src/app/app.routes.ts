@@ -17,4 +17,5 @@ export const routes: Routes = [
     { path: 'stories', component: StoriesTs },
     {path: 'add-story', component: AddStory},
     {path: 'register', component: Register},
+    {path: 'products', component: Products},
 ];
