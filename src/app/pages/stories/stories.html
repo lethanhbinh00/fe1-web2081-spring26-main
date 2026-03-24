@@ -1,0 +1,79 @@
+<div class="max-w-5xl mx-auto mt-10 px-4">
+  <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">
+    Danh sách truyện tranh
+  </h2>
+
+  <p *ngIf="loading" class="text-center text-blue-600 mb-4">
+    Đang tải dữ liệu...
+  </p>
+
+  <p *ngIf="error" class="text-center text-red-500 mb-4">
+    {{ error }}
+  </p>
+
+  <div
+    *ngIf="!loading && !error && stories.length === 0"
+    class="text-center bg-yellow-100 text-yellow-700 px-4 py-3 rounded-lg shadow"
+  >
+    Không có truyện nào
+  </div>
+
+  <div
+    *ngIf="!loading && !error && stories.length > 0"
+    class="overflow-x-auto bg-white shadow-lg rounded-xl"
+  >
+    <table class="min-w-full border border-gray-200">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="px-4 py-3 text-left">STT</th>
+          <th class="px-4 py-3 text-left">Hình ảnh</th>
+          <th class="px-4 py-3 text-left">Tên truyện</th>
+          <th class="px-4 py-3 text-left">Tác giả</th>
+          <th class="px-4 py-3 text-left">Lượt xem</th>
+          <th class="px-4 py-3 text-left">Hành động</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr
+          *ngFor="let story of stories; let i = index"
+          class="border-b hover:bg-gray-50 transition"
+        >
+          <td class="px-4 py-3">{{ i + 1 }}</td>
+
+          <td class="px-4 py-3">
+            <img
+              [src]="story.image || 'https://via.placeholder.com/100'"
+              [alt]="story.title"
+              class="w-16 h-20 object-cover rounded-md border"
+            />
+          </td>
+
+          <td class="px-4 py-3 font-medium text-gray-800">
+            {{ story.title }}
+            <span
+              *ngIf="story.views > 90000"
+              class="ml-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full"
+            >
+              HOT
+            </span>
+          </td>
+
+          <td class="px-4 py-3 text-gray-700">{{ story.author }}</td>
+
+          <td class="px-4 py-3 text-gray-700">{{ story.views }}</td>
+
+          <td class="px-4 py-3">
+            <button
+              (click)="deleteStory(story.id)"
+              [disabled]="loading"
+              class="bg-red-500 hover:bg-red-600 disabled:bg-gray-400 text-white px-3 py-1 rounded"
+            >
+              {{ loading ? 'Đang xóa...' : 'Xóa' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
